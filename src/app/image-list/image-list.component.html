@@ -9,11 +9,30 @@
   }
 </div>
 
-<dialog #dialog [open]="isImageOpened" (close)="dialogClosed()">
+<div class="overlay" id="overlay"></div>
+<dialog
+  class="rounded-4 shadow"
+  id="mydialog"
+  #dialog
+  [open]="isImageOpened"
+  (close)="dialogClosed()"
+>
   <header>
-    <span (click)="dialog.close()">&#10060;</span>
+    <div class="col-lg-2">
+      <span>&#8631; </span>
+      <span>Del</span>
+    </div>
+    <div class="col-lg-9">
+      <span>Zoom +</span>
+      <span>Zoom -</span>
+    </div>
+    <div class="col-lg-1">
+      <span></span>
+      <span (click)="closeDialog()">&#10060;</span>
+    </div>
   </header>
   <div>
+    <br />
     <img [src]="imageOpenedData?.src" [alt]="imageOpenedData?.src" />
   </div>
 </dialog>
